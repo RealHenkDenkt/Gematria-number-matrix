@@ -131,7 +131,9 @@ $(document).ready (function (){
     });
 
     factorMatrixTypeSelector.on('change', function () {
-        fillFactorMatrix($('#matrixFactor').val(), showFactorSums);
+        let n = $(this).val();
+        $('#factorTypeCell').html(n);
+        fillFactorMatrix(n, showFactorSums);
     });
 });
 
