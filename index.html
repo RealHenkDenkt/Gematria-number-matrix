@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Numbers Of The Beast</title>
+    <!-- Favicon -->
+    <link href="favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="css/nucleo.css" rel="stylesheet">
+
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/extra.style.css?t=8" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="css/argon.min.css?t=3" rel="stylesheet">
+</head>
+<body style="background: #1a174d">
+<!-- Modal -->
+<div class="modal fade" id="factorMatrixModal" tabindex="-1" role="dialog" aria-labelledby="factorMatrixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <table id="factorMatrixModalTable" class="table-dark">
+                <thead>
+                <tr>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                    </th>
+                    <th class="cellCentered">Mirror</th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&rect;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&prime;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9727;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#966;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9651;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#9708;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#128972;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#11041;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x2BC3;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&half;</span>
+                    </th>
+                    <th>
+                        <span class="bold-blue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">L</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="bold-green" id="fml-composite"></td>
+                    <td class="bold-green" id="fml-prime"></td>
+                    <td class="bold-green" id="fml-pythagorean-prime"></td>
+                    <td class="bold-green" id="fml-fibonacci"></td>
+                    <td class="bold-green" id="fml-triangular"></td>
+                    <td class="bold-green" id="fml-tetrahedral"></td>
+                    <td class="bold-green" id="fml-star"></td>
+                    <td class="bold-green" id="fml-hexagonal"></td>
+                    <td class="bold-green" id="fml-octagonal"></td>
+                    <td class="bold-green" id="fml-semi-prime"></td>
+                    <td class="bold-green" id="fml-lucas"></td>
+                    <td></td>
+                    <td class="bold-green" id="fmr-composite"></td>
+                    <td class="bold-green" id="fmr-prime"></td>
+                    <td class="bold-green" id="fmr-pythagorean-prime"></td>
+                    <td class="bold-green" id="fmr-fibonacci"></td>
+                    <td class="bold-green" id="fmr-triangular"></td>
+                    <td class="bold-green" id="fmr-tetrahedral"></td>
+                    <td class="bold-green" id="fmr-star"></td>
+                    <td class="bold-green" id="fmr-hexagonal"></td>
+                    <td class="bold-green" id="fmr-octagonal"></td>
+                    <td class="bold-green" id="fmr-semi-prime"></td>
+                    <td class="bold-green" id="fmr-lucas"></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-green" id="fml-number"></span></td>
+                    <td class="cellCentered" colspan="3">Number</td>
+                    <td colspan="10"><span id="fmr-number"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-reduced"></span></td>
+                    <td class="cellCentered" colspan="3">Reduced</td>
+                    <td colspan="10"><span id="fmr-reduced"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span class="bold-white" id="fml-cubed"></span></td>
+                    <td class="cellCentered" colspan="3">Cubed</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-cubed"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span id="fml-times-self"></span></td>
+                    <td class="cellCentered" colspan="3">Squared</td>
+                    <td colspan="10"><span id="fmr-times-self"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"> <span id="fml-times-mirror"></span></td>
+                    <td class="cellCentered" colspan="3">* Mirror</td>
+                    <td colspan="10"><span id="fmr-times-mirror"></span></td>
+                </tr>
+
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-plus-mirror"></span></td>
+                    <td class="cellCentered" colspan="3">+ Mirror</td>
+                    <td colspan="10"><span id="fmr-plus-mirror"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span id="fml-summed"></span></td>
+                    <td class="cellCentered" colspan="3">Summed</td>
+                    <td colspan="10"><span id="fmr-summed"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-number-of-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">Total divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-number-of-divisors"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">+ Divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight" colspan="10"><span class="bold-white" id="fml-summed-divisors-full"></span></td>
+                    <td class="cellCentered" colspan="3">+ divisors (full)</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-summed-divisors-full"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight"  colspan="10"><span class="bold-green" id="fml-factorization-text"></span></td>
+                    <td class="cellCentered" colspan="3">Factorization</td>
+                    <td colspan="10"><span class="bold-green" id="fmr-factorization-text"></span></td>
+                </tr>
+                <tr>
+                    <td class="cellRight"  colspan="10"><span class="bold-white" id="fml-divisors"></span></td>
+                    <td class="cellCentered" colspan="3">Divisors</td>
+                    <td colspan="10"><span class="bold-white" id="fmr-divisors"></span></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+    <div class="container bg-gradient-purple">
+        <div class="row">
+            <div style="width:100%">
+                <h1 class="titleHeader">The Numbers Of The Beast</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container bg-gradient-purple">
+        <!-- content -->
+        <div class="card bg-dark">
+            <input id="factorModalNumber" type="hidden" value="0">
+            <table id="factorMatrixTable" class="table-dark align-items-center" style="width: 100%">
+                <thead class="thead-dark">
+                <tr>
+                    <th colspan="12">
+                        Factorization table for: <input type="text" id="matrixFactor">
+
+                        Select table type <select id="factorMatrixTypeSelector">
+                        <option value="multiplication" selected>Multiplication</option>
+                        <option value="composites">Composites</option>
+                        <option value="primes">Primes</option>
+                        <option value="pythagorean-primes">Pythagorean Primes</option>
+                        <option value="semi-primes">Semi Primes</option>
+                        <option value="triangulars">Triangulars</option>
+                        <option value="hexagonals">Hexagonals</option>
+                        <option value="octagonals">Octagonals</option>
+                        <option value="tetrahedrals">Tetrahedrals</option>
+                        <option value="stars">Stars</option>
+                    </select>
+
+                        Highlight numbers (1, 2, 3 etc..)<input type="text" id="factorHighlights">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixTogglePrime" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="'" id="factorMatrixTogglePrimeLabel" class="custom-toggle-slider rounded-circle" data-value="'0" data-checked="0" data-label-off="'" data-label-on="'"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixTogglePythagorean" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#9727;" id="factorMatrixToggleLabel" class="custom-toggle-slider rounded-circle" data-value="1" data-checked="0" data-label-off="&#9727;" data-label-on="&#9727;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleSemi" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&half;" id="factorMatrixToggleSemiLabel" class="custom-toggle-slider rounded-circle" data-value="2" data-checked="0" data-label-off="&half;" data-label-on="&half;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleTriangular" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#9651;" id="factorMatrixToggleTriangularLabel" class="custom-toggle-slider rounded-circle" data-value="3" data-checked="0" data-label-off="&#9651;" data-label-on="&#9651;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleTetrahedral" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#9708;" id="factorMatrixToggleTetrahedralLabel" class="custom-toggle-slider rounded-circle" data-value="4" data-checked="0" data-label-off="&#9708;" data-label-on="&#9708;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleStar" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#128972;" id="factorMatrixToggleStarLabel" class="custom-toggle-slider rounded-circle" data-value="5" data-checked="0" data-label-off="&#128972;" data-label-on="&#128972;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleHexagonal" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#11041;" id="factorMatrixToggleHexagonalLabel" class="custom-toggle-slider rounded-circle" data-value="6" data-checked="0" data-label-off="&#11041;" data-label-on="&#11041;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleOctagonal" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#x2BC3;" id="factorMatrixToggleOctagonalLabel" class="custom-toggle-slider rounded-circle" data-value="7" data-checked="0" data-label-off="&#x2BC3;" data-label-on="&#x2BC3;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleFibonacci" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#966;" id="factorMatrixToggleFibonacciLabel" class="custom-toggle-slider rounded-circle" data-value="8" data-checked="0" data-label-off="&#966;" data-label-on="&#966;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleLucas" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="L" id="factorMatrixToggleLucasLabel" class="custom-toggle-slider rounded-circle" data-value="9" data-checked="0" data-label-off="L" data-label-on="L"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixShowSums" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="L" id="factorMatrixShowSumsLabel" class="custom-toggle-slider rounded-circle" data-value="9" data-checked="0" data-label-off="+++" data-label-on="+++"></span>
+                        </label>
+                    </th>
+
+                </tr>
+                <tr>
+                    <th class="thead-dark">#</th>
+                    <th class="thead-dark">Index</th>
+                    <th class="thead-dark">Factor</th>
+                    <th class="thead-dark">&pi;</th>
+                    <th class="thead-dark">&#981;</th>
+                    <th class="thead-dark">&#8455;</th>
+                    <th class="thead-dark">&#8730;2</th>
+                    <th class="thead-dark">&#8730;3</th>
+                    <th class="thead-dark">&#8730;5</th>
+                    <th class="thead-dark">&#8730;7</th>
+                    <th class="thead-dark">&infin;</th>
+                    <th class="thead-dark">&zeta;</th>
+                </tr>
+
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- 23 cells, 1 center -->
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/js.cookie.js?t=16"></script>
+    <script src="js/bootstrap.bundle.min.js?t=16"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/argon.js?t=16"></script>
+    <script src="js/decoder/pi-extra-big.js?t=16"></script>
+    <script src="js/decoder/pi-super-big.js?t=16"></script>
+    <script src="js/decoder/phibig.js"></script>
+    <script src="js/decoder/ebig.js"></script>
+    <Script src="js/decoder/sqrt2big.js"></Script>
+    <script src="js/decoder/sqrt3.js"></script>
+    <script src="js/decoder/sqrt5.js"></script>
+    <script src="js/decoder/sqrt7.js"></script>
+    <script src="js/decoder/Lemniscate-big.js"></script>
+    <script src="js/decoder/Zeta.js"></script>
+    <script src="js/decoder/composites.js?t=16"></script>
+    <script src="js/decoder/hexagonal.js?t=16"></script>
+    <script src="js/decoder/octagonal.js"></script>
+    <script src="js/decoder/starnumber.js"></script>
+    <script src="js/decoder/primes-list.js?t=16"></script>
+    <script src="js/decoder/triangulars.js?t=16"></script>
+    <script src="js/decoder/tetrahedral.js?t=16"></script>
+    <script src="js/decoder/fibonaccis.js?t=16"></script>
+    <script src="js/decoder/Primes.js?t=16"></script>
+    <script src="js/decoder/Pi.js?t=16"></script>
+    <script src="js/decoder/Phi.js?t=16"></script>
+    <script src="js/decoder/E.js?t=16"></script>
+    <script src="js/decoder/Sqrt.js"></script>
+    <script src="js/decoder/IrrationalNumber.js"></script>
+    <script src="js/decoder/lucas.js"></script>
+    <script src="js/decoder/FactorMatrix.js"></script>
+    <script src="js/decoder/NumberHandler.js"></script>
+    <script src="js/decoder/IrrationalHandler.js"></script>
+    <script src="js/decoder/CoreFactorMatrix.js?t=16"></script>
+</body>
