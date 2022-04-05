@@ -147,11 +147,13 @@ FactorMatrixManager.prototype.clearClass = function (css) {
     });
 }
 
-let FactorMatrix = function (number, depth) {
+let FactorMatrix = function (number, depth, viewOnly) {
     this.number = parseInt(number);
-    this.collection = [];
-    this.depth = parseInt(depth);
-    this.createFactorCollection();
+    if (true !== viewOnly) {
+        this.collection = [];
+        this.depth = parseInt(depth);
+        this.createFactorCollection();
+    }
 }
 
 FactorMatrix.prototype.setHighlights = function () {
@@ -180,7 +182,7 @@ FactorMatrix.prototype.setModalClicks = function () {
         $(this).on('click', function () {
             if (undefined !== $(this).attr('data-toggle')) {
                 $('#factorModalNumber').attr('value', $(this).attr('data-totals'));
-                let factorMatrix = new FactorMatrix();
+                let factorMatrix = new FactorMatrix(0, 0, true);
                 factorMatrix.fillModalContent($(this).attr('data-totals'));
             }
         })
