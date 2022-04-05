@@ -53,6 +53,7 @@ IrrationalNumber.prototype.searchDeep = function (search, index ) {
     }
 }
 IrrationalNumber.prototype.getPositionAndSum = function (number) {
+    if (undefined === number) return 0;
     let numberString = number.toString(),
     sum = 0,
     position = this.type.indexOf(number) + 1;

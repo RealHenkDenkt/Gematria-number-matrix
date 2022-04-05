@@ -379,6 +379,8 @@ FactorMatrix.prototype.getIndex = function (numberHandler) {
             return numberHandler.numberProperties.star;
         case 'lucas':
             return numberHandler.numberProperties.lucas;
+
+
         case 'multiplication':
             if (parseInt(numberHandler.numberProperties.prime) !== 1) {
                 return numberHandler.numberProperties.prime;
@@ -574,6 +576,17 @@ FactorMatrix.prototype.createLucasCollection = function () {
     return collection;
 }
 
+FactorMatrix.prototype.createCustomRangeCollection = function (range) {
+    let collection = [];
+
+    for (let i = 0; i <= range.length; i++) {
+        let row = this.createMatrixRow(range[i]);
+        collection.push(row);
+    }
+
+    return collection;
+}
+
 FactorMatrix.prototype.createFactorCollection = function () {
 
     let matrixType = $('#factorMatrixTypeSelector').val();
@@ -608,6 +621,18 @@ FactorMatrix.prototype.createFactorCollection = function () {
             break;
         case 'lucas':
             this.collection = this.createLucasCollection();
+            break;
+        case '19phirange':
+            this.collection = this.createCustomRangeCollection([66, 123, 854, 3109, 2194, 516, 2858, 15163, 132379, 52579, 55757, 21280, 105572, 123446, 415496, 2396077, 846334, 62500, 567, 526]);
+            break;
+        case '19pirange':
+            this.collection = this.createCustomRangeCollection([96, 180, 3664, 24717, 15492, 84198, 65489, 3725, 16974, 41702, 3788, 5757, 1958, 14609, 62892, 44745, 9385, 169, 40, 70]);
+            break;
+        case '3pirange':
+            this.collection = this.createCustomRangeCollection([19, 37, 46]);
+            break;
+        case '4phirange':
+            this.collection = this.createCustomRangeCollection([1000, 2796, 6336, 2107]);
             break;
         case 'multiplication':
         default:
