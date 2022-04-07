@@ -1,6 +1,6 @@
 # Gematria-number-matrix
 
-![alt text](https://github.com/RealHenkDenkt/ciphers-and-numbers/blob/main/img/Gematria-number-matrix-release1.png?raw=true)
+![alt text](https://github.com/RealHenkDenkt/Gematria-number-matrix/blob/main/img/Gematria-number-matrix-release1.png?raw=true)
 
 Usage:
 
