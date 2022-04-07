@@ -1,2 +1,3 @@
 - Tooltips to symbols
 - Limiter for number of rows in factor matrix
+- Performance

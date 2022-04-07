@@ -255,11 +255,10 @@ FactorMatrix.prototype.setModalContent = function (number, direction) {
     // clear first
     this.clearModalContent(direction);
     let numberHandler = new NumberHandler();
-    let element = '';
     numberHandler.setNumber(number);
 
     // set Number
-    element = '#fm'+direction+'-number';
+    let element = '#fm'+direction+'-number';
     this.setModalCell(element, number);
     // set composite
     if (numberHandler.numberProperties.composite !== -1)  {
@@ -397,7 +396,7 @@ FactorMatrix.prototype.getIndex = function (numberHandler) {
 FactorMatrix.prototype.createMatrixRow = function (number) {
     let numberHandler = new NumberHandler();
     let irrationalHandler = new IrrationalHandler();
-
+console.log(number);
     numberHandler.setNumber(number);
     irrationalHandler.setNumber(number);
     let positionsAndSums = irrationalHandler.getPositionAndSums();

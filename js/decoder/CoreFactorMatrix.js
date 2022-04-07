@@ -21,6 +21,21 @@ $(document).ready (function (){
         fillFactorMatrix(matrixFactor.val(), showFactorSums);
     });
 
+    matrixFactor.on('input', function () {
+        // Some sanity checks to avoid locking up
+        // In case of multiplication table, don't accept numbers > 5000
+        let number = parseInt(matrixFactor.val())
+        if (number > 5000 && factorMatrixTypeSelector.val() === 'multiplication') return;
+        if (number > 1000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
+        if (number > 500 && factorMatrixTypeSelector.val() === 'triangulars') return;
+        if (number > 200 && factorMatrixTypeSelector.val() === 'hexagonals') return;
+        if (number > 80 && factorMatrixTypeSelector.val() === 'stars') return;
+        if (number > 200 && factorMatrixTypeSelector.val() === 'octagonals') return;
+        if (number > 9000) return;
+
+        fillFactorMatrix(number, showFactorSums);
+    });
+
     factorMatrixToggleHexagonal.on('click', function () {
         let factorMatrixManager = new FactorMatrixManager();
         if (false === $(this)[0].checked ) {
@@ -122,9 +137,6 @@ $(document).ready (function (){
         }
     });
 
-    matrixFactor.on('input', function () {
-        fillFactorMatrix(matrixFactor.val(), showFactorSums);
-    });
 
     factorHighlights.on('input', function () {
         setFactorMatrixHighlights();
@@ -145,7 +157,7 @@ function setFactorMatrixHighlights() {
 }
 
 function fillFactorMatrix (number, showFactorSums) {
-        let factorMatrix = new FactorMatrix(number, 100),
+        let factorMatrix = new FactorMatrix(number, 40),
         tableBody = '',
         factorMatrixTableBody = $('#factorMatrixTable tbody');
 

@@ -68,6 +68,7 @@ PrimeManager.prototype.getPrimeIndex = function (prime) {
 
 PrimeManager.prototype.isPrime = function (n) {
         if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false;
+        if (n % 2 === 0) return false;
 
         let m=Math.sqrt(n); //returns the square root of the passed value
 
