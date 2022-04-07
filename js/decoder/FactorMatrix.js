@@ -161,7 +161,7 @@ FactorMatrix.prototype.setHighlights = function () {
     let highlights = $('#factorHighlights').val().replace(/ /g,'').split(',');
 
     for (let i = 0; i <= highlights.length; i++) {
-        $('#factorMatrixTable td').each(function () {
+        $('#factorMatrixTable td, #factorMatrixTable td span').each(function () {
             if (parseInt($(this).attr('data-totals')) === parseInt(highlights[i])) {
                 $(this).addClass('bold-light-green').addClass('glow');
             }
@@ -175,9 +175,24 @@ FactorMatrix.prototype.clearHighlights = function () {
             $(this).removeClass('glow');
             $(this).attr('data-active-highlight', '');
         });
+    $('#factorMatrixTable td span').each(function () {
+        $(this).removeClass('bold-light-green');
+        $(this).removeClass('glow');
+        $(this).attr('data-active-highlight', '');
+    });
 }
 
 FactorMatrix.prototype.setModalClicks = function () {
+    $('#factorMatrixTable td span').each(function (){
+        $(this).on('click', function () {
+            if (undefined !== $(this).attr('data-toggle')) {
+                $('#factorModalNumber').attr('value', $(this).attr('data-totals'));
+                let factorMatrix = new FactorMatrix(0, 0, true);
+                factorMatrix.fillModalContent($(this).attr('data-totals'));
+            }
+        })
+    });
+
     $('#factorMatrixTable td').each(function (){
         $(this).on('click', function () {
             if (undefined !== $(this).attr('data-toggle')) {
