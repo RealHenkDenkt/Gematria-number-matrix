@@ -15,9 +15,11 @@ CompositeManager.prototype.isComposite = function (number) {
     let primes = new PrimeManager();
     number = parseInt(number);
 
-    if (true === primes.isPrime(number)) {
+
+    if (true === primes.isPrimeExperimental(number)) {
         return -1;
     }
+
 
     let index = CompositeNumbers.indexOf(number);
 
@@ -25,10 +27,10 @@ CompositeManager.prototype.isComposite = function (number) {
         return index+1;
     }
 
-    index = 0;
+    index = CompositeNumbers.length -1;
     // Long search
-    for (let i = 4; i <=number; i++) {
-        if (false === primes.isPrime(i)) {
+    for (let i = index; i <=number; i++) {
+        if (false === primes.isPrimeExperimental(i)) {
             index++;
         }
     }

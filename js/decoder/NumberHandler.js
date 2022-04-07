@@ -35,20 +35,53 @@ NumberHandler.prototype.setNumber = function (number) {
 }
 
 NumberHandler.prototype.setProperties = function () {
+/*
+    console.time('Prime');
     this.setPrime();
+    console.timeEnd('Prime');
+*/
+  //  console.time('Prime experimental');
+    this.setPrimeExperimental();
+  //  console.timeEnd('Prime experimental');
+  //  console.time('Fibonacci');
     this.setFibonacci();
+  //  console.timeEnd('Fibonacci');
+  //  console.time('Triangular');
     this.setTriangular();
+  //  console.timeEnd('Triangular');
+  //  console.time('Tetrahedral');
     this.setTetrahedral();
+  //  console.timeEnd('Tetrahedral');
+  //  console.time('Hexagonal');
     this.setHexagonal();
+  //  console.timeEnd('Hexagonal');
+  //  console.time('Star');
     this.setStar();
+  //  console.timeEnd('Star');
+  //  console.time('Octagonal');
     this.setOctagonal();
+  //  console.timeEnd('Octagonal');
+  //  console.time('Lucas');
     this.setLucas();
+  //  console.timeEnd('Lucas');
+ //   console.time('Reduced');
     this.setReduced();
+ //   console.timeEnd('Reduced');
+ //   console.time('Times self');
     this.setTimesSelf();
+  //  console.timeEnd('Times self');
+  //  console.time('Plus mirror');
     this.setPlusMirror();
+ //   console.timeEnd('Plus mirror');
+ //   console.time('Times mirror');
     this.setTimesMirror();
+//    console.timeEnd('Times mirror');
+  //  console.time('Summed and divisors');
     this.setSummedAndDivisors();
+//    console.timeEnd('Summed and divisors');
+//    console.time('Composite');
     this.setComposite();
+  //  console.timeEnd('Composite');
 }
 
 NumberHandler.prototype.setReduced = function (){
@@ -221,6 +254,24 @@ NumberHandler.prototype.setPrime = function () {
 
     // Normal prime
     if (primeManager.isPrime(this.number)) {
+        this.numberProperties.prime = primeManager.getPrimeIndex(this.number);
+    }
+
+    if (primeManager.isPythagoreanPrime(this.number)) {
+        this.numberProperties.pythagorean_prime = primeManager.getPythagoreanPrimeIndex(this.number);
+    }
+
+    if (primeManager.isSemiprime(this.number)) {
+        this.numberProperties.semi_prime = primeManager.getSemiPrimeIndex(this.number);
+
+    }
+}
+
+NumberHandler.prototype.setPrimeExperimental = function () {
+    let primeManager = new PrimeManager ();
+
+    // Normal prime
+    if (primeManager.isPrimeExperimental(this.number)) {
         this.numberProperties.prime = primeManager.getPrimeIndex(this.number);
     }
 

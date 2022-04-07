@@ -396,7 +396,7 @@ FactorMatrix.prototype.getIndex = function (numberHandler) {
 FactorMatrix.prototype.createMatrixRow = function (number) {
     let numberHandler = new NumberHandler();
     let irrationalHandler = new IrrationalHandler();
-console.log(number);
+
     numberHandler.setNumber(number);
     irrationalHandler.setNumber(number);
     let positionsAndSums = irrationalHandler.getPositionAndSums();

@@ -25,8 +25,10 @@ $(document).ready (function (){
         // Some sanity checks to avoid locking up
         // In case of multiplication table, don't accept numbers > 5000
         let number = parseInt(matrixFactor.val())
-        if (number > 5000 && factorMatrixTypeSelector.val() === 'multiplication') return;
-        if (number > 1000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
+        if (isNaN(number)) return;
+
+        if (number > 9000 && factorMatrixTypeSelector.val() === 'multiplication') return;
+        if (number > 8000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
         if (number > 500 && factorMatrixTypeSelector.val() === 'triangulars') return;
         if (number > 200 && factorMatrixTypeSelector.val() === 'hexagonals') return;
         if (number > 80 && factorMatrixTypeSelector.val() === 'stars') return;
