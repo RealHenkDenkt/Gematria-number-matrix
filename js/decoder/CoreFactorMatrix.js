@@ -29,8 +29,8 @@ $(document).ready (function (){
 
         if (number > 9000 && factorMatrixTypeSelector.val() === 'multiplication') return;
         if (number > 8000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
-        if (number > 500 && factorMatrixTypeSelector.val() === 'triangulars') return;
-        if (number > 200 && factorMatrixTypeSelector.val() === 'hexagonals') return;
+        if (number > 750 && factorMatrixTypeSelector.val() === 'triangulars') return;
+        if (number > 800 && factorMatrixTypeSelector.val() === 'hexagonals') return;
         if (number > 80 && factorMatrixTypeSelector.val() === 'stars') return;
         if (number > 200 && factorMatrixTypeSelector.val() === 'octagonals') return;
         if (number > 9000) return;
@@ -147,6 +147,8 @@ $(document).ready (function (){
     factorMatrixTypeSelector.on('change', function () {
         let n = $(this).val();
         $('#factorTypeCell').html(n);
+        // Clear input to avoid weird behavior
+        $('#matrixFactor').val('');
         fillFactorMatrix(n, showFactorSums);
     });
 });
@@ -159,6 +161,8 @@ function setFactorMatrixHighlights() {
 }
 
 function fillFactorMatrix (number, showFactorSums) {
+        if ($('#matrixFactor').val() === '') return;
+
         let factorMatrix = new FactorMatrix(number, 40),
         tableBody = '',
         factorMatrixTableBody = $('#factorMatrixTable tbody');

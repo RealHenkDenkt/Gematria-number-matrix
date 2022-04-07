@@ -408,14 +408,14 @@ FactorMatrix.prototype.getIndex = function (numberHandler) {
     }
 }
 
-FactorMatrix.prototype.createMatrixRow = function (number) {
+FactorMatrix.prototype.createMatrixRow = function (number, index) {
     let numberHandler = new NumberHandler();
     let irrationalHandler = new IrrationalHandler();
-
+//console.log(number);return;
     numberHandler.setNumber(number);
     irrationalHandler.setNumber(number);
     let positionsAndSums = irrationalHandler.getPositionAndSums();
-    let index = this.getIndex(numberHandler);
+    if (undefined === index) index = this.getIndex(numberHandler);
 
     if (-1 === index) {
         if (numberHandler.numberProperties.prime !== -1) index = numberHandler.numberProperties.prime;
@@ -528,8 +528,8 @@ FactorMatrix.prototype.createHexagonalsCollection = function () {
 
     for (let i = this.number; i < (this.depth + this.number); i++) {
 
-        let t = hexagonalManager.getHexagonalByNumber(i);
-        let row = this.createMatrixRow(t);
+        let t = hexagonalManager.getNthHexagonal(i);
+        let row = this.createMatrixRow(t,i);
         collection.push(row)
     }
 
@@ -569,9 +569,8 @@ FactorMatrix.prototype.createStarsCollection = function () {
     let starnumberManager = new StarnumberManager();
 
     for (let i = this.number; i < (this.depth + this.number); i++) {
-
         let t = starnumberManager.getNthStarnumber(i);
-        let row = this.createMatrixRow(t);
+        let row = this.createMatrixRow(t, i);
         collection.push(row)
     }
 

@@ -63,7 +63,7 @@ PrimeManager.prototype.getPrimeIndex = function (prime) {
             index++;
         }
     }
-    return index;
+    return index+1;
 }
 
 PrimeManager.prototype.isPrimeExperimental = function (n) {
