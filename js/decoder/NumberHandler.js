@@ -40,18 +40,18 @@ NumberHandler.prototype.setProperties = function () {
     this.setPrime();
     console.timeEnd('Prime');
 */
-  //  console.time('Prime experimental');
+    console.time('Prime experimental');
     this.setPrimeExperimental();
-  //  console.timeEnd('Prime experimental');
-  //  console.time('Fibonacci');
+    console.timeEnd('Prime experimental');
+    console.time('Fibonacci');
     this.setFibonacci();
-  //  console.timeEnd('Fibonacci');
+    console.timeEnd('Fibonacci');
     console.time('Triangular');
     this.setTriangular();
     console.timeEnd('Triangular');
     console.time('Tetrahedral');
     this.setTetrahedral();
-    console.timeEnd('Tetrahedral');
+  console.timeEnd('Tetrahedral');
     console.time('Hexagonal');
     this.setHexagonal();
     console.timeEnd('Hexagonal');
@@ -63,25 +63,25 @@ NumberHandler.prototype.setProperties = function () {
     console.timeEnd('Octagonal');
     console.time('Lucas');
     this.setLucas();
-  //  console.timeEnd('Lucas');
- //   console.time('Reduced');
+    console.timeEnd('Lucas');
+    console.time('Reduced');
     this.setReduced();
- //   console.timeEnd('Reduced');
- //   console.time('Times self');
+    console.timeEnd('Reduced');
+    console.time('Times self');
     this.setTimesSelf();
-  //  console.timeEnd('Times self');
-  //  console.time('Plus mirror');
+   console.timeEnd('Times self');
+    console.time('Plus mirror');
     this.setPlusMirror();
- //   console.timeEnd('Plus mirror');
- //   console.time('Times mirror');
+    console.timeEnd('Plus mirror');
+    console.time('Times mirror');
     this.setTimesMirror();
-//    console.timeEnd('Times mirror');
-  //  console.time('Summed and divisors');
+   console.timeEnd('Times mirror');
+    console.time('Summed and divisors');
     this.setSummedAndDivisors();
-//    console.timeEnd('Summed and divisors');
-//    console.time('Composite');
+    console.timeEnd('Summed and divisors');
+  console.time('Composite');
     this.setComposite();
-  //  console.timeEnd('Composite');
+   console.timeEnd('Composite');
 }
 
 NumberHandler.prototype.setReduced = function (){
@@ -104,13 +104,14 @@ NumberHandler.prototype.isInt = function (value) {
 }
 
 NumberHandler.prototype.setSummedAndDivisors = function (){
+    if (this.number > 9000) return;
     let sum = 0,
         fac = 0,
         facM = 0,
         sumdiv = 0,
         countDivisors = 0,
         res = [];
-
+console.time('summing');
     for (let i = 1; i <= this.number; i++) {
         sum += i;
         fac = i * fac;
@@ -123,6 +124,7 @@ NumberHandler.prototype.setSummedAndDivisors = function (){
 
         if (i === this.number - 1 && fac !== 'Infinity') facM = fac;
     }
+    console.timeEnd('summing');
     this.numberProperties.divisors = res;
     this.numberProperties.sum_divisors_full = sumdiv;
     this.numberProperties.sum_divisors = sumdiv - this.number - 1;

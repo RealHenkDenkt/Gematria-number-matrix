@@ -32,7 +32,7 @@ $(document).ready (function (){
         if (number > 750 && factorMatrixTypeSelector.val() === 'triangulars') return;
         if (number > 800 && factorMatrixTypeSelector.val() === 'hexagonals') return;
         if (number > 80 && factorMatrixTypeSelector.val() === 'stars') return;
-        if (number > 200 && factorMatrixTypeSelector.val() === 'octagonals') return;
+        if (number > 9000 && factorMatrixTypeSelector.val() === 'octagonals') return;
         if (number > 9000) return;
 
         fillFactorMatrix(number, showFactorSums);

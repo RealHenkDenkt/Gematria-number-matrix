@@ -12,7 +12,9 @@ CompositeManager.prototype.getCompositeByIndex = function (number) {
 }
 
 CompositeManager.prototype.isComposite = function (number) {
-    let primes = new PrimeManager();
+    if (number > 49998) return -1;
+    return CompositeNumbers.indexOf(number);
+/*    let primes = new PrimeManager();
     number = parseInt(number);
 
 
@@ -36,7 +38,7 @@ CompositeManager.prototype.isComposite = function (number) {
     }
 
     if (index > 0) return index;
-    return -1;
+    return -1;*/
 }
 
 
