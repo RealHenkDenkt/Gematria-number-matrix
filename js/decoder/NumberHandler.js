@@ -35,7 +35,8 @@ NumberHandler.prototype.setNumber = function (number) {
 }
 
 NumberHandler.prototype.setProperties = function () {
-/*
+    if (this.number === 1) return;
+    /*
     console.time('Prime');
     this.setPrime();
     console.timeEnd('Prime');
@@ -53,8 +54,10 @@ NumberHandler.prototype.setProperties = function () {
     this.setTimesSelf();
     this.setPlusMirror();
     this.setTimesMirror();
-    this.setSummedAndDivisors();
     this.setComposite();
+    if (this.numberProperties.composite === -1) {
+        this.setSummedAndDivisors();
+    }
 }
 
 NumberHandler.prototype.setReduced = function (){
@@ -274,9 +277,15 @@ NumberHandler.prototype.mirrorNumber = function (number) {
 
 }
 NumberHandler.prototype.setComposite = function () {
-    if (true === this.checkComposite()) {
-        let compositeManager = new CompositeManager();
-        this.numberProperties.composite = compositeManager.isComposite(this.number);
+    if (true === this.checkComposite() && this.number <= 110488) {
+        let index = Composites.indexOf(this.number);
+        let compositeProperties = CompositeProperties[index];
+        this.numberProperties.composite = index + 1;
+        this.numberProperties.divisors = compositeProperties.divisors.join(', ');
+        this.numberProperties.sum_divisors = compositeProperties.sum_divisors;
+        this.numberProperties.sum_divisors_full = compositeProperties.sum_divisors_full;
+        this.numberProperties.summed = compositeProperties.summed;
+        this.numberProperties.factorization_text = compositeProperties.factorization_text;
     }
 }
 

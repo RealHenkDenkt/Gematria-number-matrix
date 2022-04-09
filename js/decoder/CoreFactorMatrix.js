@@ -30,10 +30,10 @@ $(document).ready (function (){
         if (number > 9000 && factorMatrixTypeSelector.val() === 'multiplication') return;
         if (number > 8000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
         if (number > 750 && factorMatrixTypeSelector.val() === 'triangulars') return;
-        if (number > 800 && factorMatrixTypeSelector.val() === 'hexagonals') return;
-        if (number > 80 && factorMatrixTypeSelector.val() === 'stars') return;
-        if (number > 9000 && factorMatrixTypeSelector.val() === 'octagonals') return;
-        if (number > 9000) return;
+        if (number > 1000 && factorMatrixTypeSelector.val() === 'hexagonals') return;
+        if (number > 1000 && factorMatrixTypeSelector.val() === 'stars') return;
+        if (number > 1000 && factorMatrixTypeSelector.val() === 'octagonals') return;
+        if (number > 90000) return;
 
         fillFactorMatrix(number, showFactorSums);
     });

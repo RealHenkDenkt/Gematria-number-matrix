@@ -361,7 +361,8 @@ FactorMatrix.prototype.setModalContent = function (number, direction) {
     this.setModalCell(element, numberHandler.numberProperties.sum_divisors_full);
     // Divisors
     element = '#fm'+direction+'-divisors';
-    this.setModalCell(element, numberHandler.numberProperties.divisors.join(', '));
+    if (Array.isArray(numberHandler.numberProperties.divisors)) this.setModalCell(element, numberHandler.numberProperties.divisors.join(', '));
+    else this.setModalCell(element, numberHandler.numberProperties.divisors);
 
     element = '#fm'+direction+'-factorization-text';
     this.setModalCell(element, numberHandler.numberProperties.factorization_text);
