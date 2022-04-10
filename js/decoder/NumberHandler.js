@@ -75,7 +75,7 @@ NumberHandler.prototype.isInt = function (value) {
 }
 
 NumberHandler.prototype.setSummedAndDivisors = function (){
-    if (this.number > 9000) return;
+    if (this.number > 100000) return;
     let sum = 0,
         fac = 0,
         facM = 0,
@@ -275,6 +275,7 @@ NumberHandler.prototype.setComposite = function () {
         let index = Composites.indexOf(this.number);
         let compositeProperties = CompositeProperties[index];
         this.numberProperties.composite = index + 1;
+        this.numberProperties.count_divisors = compositeProperties.count_divisors;
         this.numberProperties.divisors = compositeProperties.divisors.join(', ');
         this.numberProperties.sum_divisors = compositeProperties.sum_divisors;
         this.numberProperties.sum_divisors_full = compositeProperties.sum_divisors_full;

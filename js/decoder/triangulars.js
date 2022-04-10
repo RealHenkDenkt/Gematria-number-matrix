@@ -35,7 +35,6 @@ TriangularManager.prototype.getAll = function () {
     for (let i = 1; i <= 10000; i++) {
         collection.push(this.getTriangularByNumber(i));
     }
-    console.log(collection);
 }
 let Triangulars = [
     1,

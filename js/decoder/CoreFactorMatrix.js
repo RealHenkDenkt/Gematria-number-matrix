@@ -41,7 +41,7 @@ $(document).ready (function (){
         if (number > 8000 && factorMatrixTypeSelector.val() === 'pythagorean-prime') return;
         if (number > 750 && factorMatrixTypeSelector.val() === 'triangulars') return;
         if (number > 1000 && factorMatrixTypeSelector.val() === 'hexagonals') return;
-        if (number > 1000 && factorMatrixTypeSelector.val() === 'stars') return;
+        if (number > 200 && factorMatrixTypeSelector.val() === 'stars') return;
         if (number > 1000 && factorMatrixTypeSelector.val() === 'octagonals') return;
         if (number > 90000) return;
 
@@ -226,7 +226,6 @@ function fillFactorMatrix (number, showFactorSums) {
             if (true === irrationalHandler.irrationalToggles['LEMNI']) tableRow += '<span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.LEMNI[1] + '">' + '(' + data.LEMNI[1] + ')</span></td>';
             if (true === irrationalHandler.irrationalToggles['ZETA']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.ZETA[0] + '">' + data.ZETA[0] + '</span>';
             if (true === irrationalHandler.irrationalToggles['ZETA']) tableRow += '<span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.ZETA[1] + '">' + '(' + data.ZETA[1] + ')</span></td>';
-            console.log(data);
             tableRow +='<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SUM[0] + '">' + data.SUM[0] + '</span>';
             tableRow += '<span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SUM[1] + '">' + '(' + data.SUM[1] + ')</span></td>';
         } else {
