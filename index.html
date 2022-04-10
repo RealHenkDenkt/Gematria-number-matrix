@@ -295,18 +295,72 @@
 
                 </tr>
                 <tr>
-                    <th class="thead-dark">#</th>
-                    <th class="thead-dark">Index</th>
-                    <th id="factorTypeCell" class="thead-dark">Factor</th>
-                    <th class="thead-dark">&pi;</th>
-                    <th class="thead-dark">&#981;</th>
-                    <th class="thead-dark">&#8455;</th>
-                    <th class="thead-dark">&#8730;2</th>
-                    <th class="thead-dark">&#8730;3</th>
-                    <th class="thead-dark">&#8730;5</th>
-                    <th class="thead-dark">&#8730;7</th>
-                    <th class="thead-dark">&infin;</th>
-                    <th class="thead-dark">&zeta;</th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixTogglePI" type="checkbox">
+                            <span data-toggle="tooltip" title="&pi;" id="factorMatrixTogglePILabel" class="custom-toggle-slider rounded-circle" data-value="'0" data-checked="1" data-label-off="&pi;" data-label-on="&pi;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixTogglePHI" type="checkbox">
+                            <span data-toggle="tooltip" title="&#981;" id="factorMatrixTogglePHILabel" class="custom-toggle-slider rounded-circle" data-value="1" data-checked="1" data-label-off="&#981;;" data-label-on="&#981;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleEULER" type="checkbox">
+                            <span data-toggle="tooltip" title="&#8455;" id="factorMatrixToggleEULERLabel" class="custom-toggle-slider rounded-circle" data-value="2" data-checked="1" data-label-off="&#8455;" data-label-on="&#8455;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleSQRT2" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#8730;2" id="factorMatrixToggleSQRT2Label" class="custom-toggle-slider rounded-circle" data-value="3" data-checked="1" data-label-off="&#8730;2" data-label-on="&#8730;2"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleSQRT3" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#8730;3" id="factorMatrixToggleSQRT3Label" class="custom-toggle-slider rounded-circle" data-value="4" data-checked="1" data-label-off="&#8730;3" data-label-on="&#8730;3"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleSQRT5" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#8730;5" id="factorMatrixToggleSQRT5Label" class="custom-toggle-slider rounded-circle" data-value="5" data-checked="1" data-label-off="&#8730;5" data-label-on="&#8730;5"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleSQRT7" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&#8730;7" id="factorMatrixToggleSQRT7lLabel" class="custom-toggle-slider rounded-circle" data-value="6" data-checked="1" data-label-off="&#8730;7" data-label-on="&#8730;7"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleLEMNI" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&infin;" id="factorMatrixToggleLEMNILabel" class="custom-toggle-slider rounded-circle" data-value="7" data-checked="1" data-label-off="&infin;" data-label-on="&infin;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <label class="custom-toggle">
+                            <input id="factorMatrixToggleZETA" type="checkbox" checked>
+                            <span data-toggle="tooltip" title="&zeta;" id="factorMatrixToggleZETALabel" class="custom-toggle-slider rounded-circle" data-value="8" data-checked="1" data-label-off="&zeta;" data-label-on="&zeta;"></span>
+                        </label>
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+
+                    <th>
+                        Enabled irrationals
+                    </th>
+                </tr>
+                <tr id="factorMatrixTableDynamicRow">
                 </tr>
 
                 </thead>

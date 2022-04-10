@@ -7,7 +7,7 @@ FactorMatrixManager.prototype.highlightPrimes = function () {
     this.clearClass('bold-green');
     let primeManager = new PrimeManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === primeManager.isPrime(number)) {
@@ -21,7 +21,7 @@ FactorMatrixManager.prototype.highlightPythagoreanPrimes = function () {
     this.clearClass('bold-green');
     let primeManager = new PrimeManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === primeManager.isPythagoreanPrime(number)) {
@@ -35,7 +35,7 @@ FactorMatrixManager.prototype.highlightSemiPrimes = function () {
     this.clearClass('bold-orange');
     let primeManager = new PrimeManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === primeManager.isSemiprime(number)) {
@@ -49,7 +49,7 @@ FactorMatrixManager.prototype.highlightTriangulars = function () {
     this.clearClass('bold-yellow');
     let triangularManager = new TriangularManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === triangularManager.isTriangular(number)) {
@@ -63,7 +63,7 @@ FactorMatrixManager.prototype.highlightTetrahedrals = function () {
     this.clearClass('bold-red');
     let tetrahedralManager = new TetrahedralManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === tetrahedralManager.isTetrahedral(number)) {
@@ -77,7 +77,7 @@ FactorMatrixManager.prototype.highlightOctagonals = function () {
     this.clearClass('bold-blue');
     let octagonalManager = new OctagonalManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === octagonalManager.isOctagonal(number)) {
@@ -91,7 +91,7 @@ FactorMatrixManager.prototype.highlightHexagonals = function () {
     this.clearClass('bold-dark-blue');
     let hexagonalManager = new HexagonalManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === hexagonalManager.isHexagonal(number)) {
@@ -104,7 +104,7 @@ FactorMatrixManager.prototype.highlightStars = function () {
     this.clearClass('bold-yellow');
     let starManager = new StarnumberManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === starManager.isStarnumber(number)) {
@@ -117,7 +117,7 @@ FactorMatrixManager.prototype.highlightLucas = function () {
     this.clearClass('bold-green');
     let lucasManager = new LucasManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === lucasManager.isLucasNumber(number)) {
@@ -130,7 +130,7 @@ FactorMatrixManager.prototype.highlightFibonacci = function () {
     this.clearClass('bold-purple');
     let fibonaccisManager = new FibonaccisManager();
 
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         let number = $(this).attr('data-totals');
 
         if (true === fibonaccisManager.isFibonacci(number)) {
@@ -140,7 +140,7 @@ FactorMatrixManager.prototype.highlightFibonacci = function () {
 }
 
 FactorMatrixManager.prototype.clearClass = function (css) {
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
         if ($(this).hasClass(css)) {
             $(this).removeClass(css).removeClass('glow');
         }
@@ -156,12 +156,37 @@ let FactorMatrix = function (number, depth, viewOnly) {
     }
 }
 
+
+FactorMatrix.prototype.getHeader = function () {
+    let collection = [],
+        irrationalHandler = new IrrationalHandler();
+
+    irrationalHandler.checkToggled();
+    collection.push('<th class="thead-dark">#</th>');
+    collection.push('<th class="thead-dark">Index</th>');
+    collection.push('<th id="factorTypeCell" class="thead-dark">Factor</th>');
+
+    if (true === irrationalHandler.irrationalToggles['PI']) collection.push('<th class="thead-dark">&pi;</th>');
+    if (true === irrationalHandler.irrationalToggles['PHI']) collection.push('<th class="thead-dark">&#981;</th>');
+    if (true === irrationalHandler.irrationalToggles['EULER']) collection.push('<th class="thead-dark">&#8455;</th>');
+    if (true === irrationalHandler.irrationalToggles['SQRT2']) collection.push('<th class="thead-dark">&#8730;2</th>');
+    if (true === irrationalHandler.irrationalToggles['SQRT3']) collection.push('<th class="thead-dark">&#8730;3</th>');
+    if (true === irrationalHandler.irrationalToggles['SQRT5']) collection.push('<th class="thead-dark">&#8730;5</th>');
+    if (true === irrationalHandler.irrationalToggles['SQRT7']) collection.push('<th class="thead-dark">&#8730;7</th>');
+    if (true === irrationalHandler.irrationalToggles['LEMNI']) collection.push('<th class="thead-dark">&infin;</th>');
+    if (true === irrationalHandler.irrationalToggles['ZETA']) collection.push('<th class="thead-dark">&zeta;</th>');
+
+    collection.push('<th class="thead-dark">Sum</th>');
+
+    return collection;
+}
+
 FactorMatrix.prototype.setHighlights = function () {
     this.clearHighlights();
     let highlights = $('#factorHighlights').val().replace(/ /g,'').split(',');
 
     for (let i = 0; i <= highlights.length; i++) {
-        $('#factorMatrixTable td, #factorMatrixTable td span').each(function () {
+        $('#factorMatrixTable td span').each(function () {
             if (parseInt($(this).attr('data-totals')) === parseInt(highlights[i])) {
                 $(this).addClass('bold-light-green').addClass('glow');
             }
@@ -170,16 +195,16 @@ FactorMatrix.prototype.setHighlights = function () {
 }
 
 FactorMatrix.prototype.clearHighlights = function () {
-    $('#factorMatrixTable td').each(function () {
+    $('#factorMatrixTable td span').each(function () {
             $(this).removeClass('bold-light-green');
             $(this).removeClass('glow');
             $(this).attr('data-active-highlight', '');
         });
-    $('#factorMatrixTable td span').each(function () {
+/*    $('#factorMatrixTable td span').each(function () {
         $(this).removeClass('bold-light-green');
         $(this).removeClass('glow');
         $(this).attr('data-active-highlight', '');
-    });
+    });*/
 }
 
 FactorMatrix.prototype.setModalClicks = function () {
@@ -193,7 +218,7 @@ FactorMatrix.prototype.setModalClicks = function () {
         })
     });
 
-    $('#factorMatrixTable td').each(function (){
+    /*$('#factorMatrixTable td span').each(function (){
         $(this).on('click', function () {
             if (undefined !== $(this).attr('data-toggle')) {
                 $('#factorModalNumber').attr('value', $(this).attr('data-totals'));
@@ -201,7 +226,7 @@ FactorMatrix.prototype.setModalClicks = function () {
                 factorMatrix.fillModalContent($(this).attr('data-totals'));
             }
         })
-    });
+    });*/
 }
 
 FactorMatrix.prototype.fillModalContent = function (number) {
@@ -428,15 +453,16 @@ FactorMatrix.prototype.createMatrixRow = function (number, index) {
             'index': index,
             'composite' : numberHandler.numberProperties.composite,
             'number' : number,
-            'PI' : [positionsAndSums.PI[0], positionsAndSums.PI[1]],
-            'PHI' : [positionsAndSums.PHI[0], positionsAndSums.PHI[1]],
-            'EULER' : [positionsAndSums.EULER[0], positionsAndSums.EULER[1]],
-            'SQRT2' : [positionsAndSums.SQRT2[0], positionsAndSums.SQRT2[1]],
-            'SQRT3' : [positionsAndSums.SQRT3[0], positionsAndSums.SQRT3[1]],
-            'SQRT5' : [positionsAndSums.SQRT5[0], positionsAndSums.SQRT5[1]],
-            'SQRT7' : [positionsAndSums.SQRT7[0], positionsAndSums.SQRT7[1]],
-            'LEMNI' : [positionsAndSums.LEMNI[0], positionsAndSums.LEMNI[1]],
-            'ZETA' : [positionsAndSums.ZETA[0], positionsAndSums.ZETA[1]],
+            'PI' : true === irrationalHandler.irrationalToggles['PI'] ? [ positionsAndSums.PI[0], positionsAndSums.PI[1] ] : [],
+            'PHI' : true === irrationalHandler.irrationalToggles['PHI'] ? [ positionsAndSums.PHI[0], positionsAndSums.PHI[1] ] : [],
+            'EULER' : true === irrationalHandler.irrationalToggles['EULER'] ? [ positionsAndSums.EULER[0], positionsAndSums.EULER[1] ] : [],
+            'SQRT2' : true === irrationalHandler.irrationalToggles['SQRT2'] ? [ positionsAndSums.SQRT2[0], positionsAndSums.SQRT2[1] ] : [],
+            'SQRT3' : true === irrationalHandler.irrationalToggles['SQRT3'] ? [ positionsAndSums.SQRT3[0], positionsAndSums.SQRT3[1] ] :[],
+            'SQRT5' : true === irrationalHandler.irrationalToggles['SQRT5'] ? [ positionsAndSums.SQRT5[0], positionsAndSums.SQRT5[1] ] : [],
+            'SQRT7' : true === irrationalHandler.irrationalToggles['SQRT7'] ? [ positionsAndSums.SQRT7[0], positionsAndSums.SQRT7[1] ] : [],
+            'LEMNI' : true === irrationalHandler.irrationalToggles['LEMNI'] ? [ positionsAndSums.LEMNI[0], positionsAndSums.LEMNI[1] ] : [],
+            'ZETA' : true === irrationalHandler.irrationalToggles['ZETA'] ? [ positionsAndSums.ZETA[0], positionsAndSums.ZETA[1] ] : [],
+            'SUM': [ positionsAndSums['SUM'][0], positionsAndSums['SUM'][1] ],
         }
     ]
 }

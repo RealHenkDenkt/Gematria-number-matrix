@@ -36,11 +36,6 @@ NumberHandler.prototype.setNumber = function (number) {
 
 NumberHandler.prototype.setProperties = function () {
     if (this.number === 1) return;
-    /*
-    console.time('Prime');
-    this.setPrime();
-    console.timeEnd('Prime');
-*/
 
     this.setPrimeExperimental();
     this.setFibonacci();
@@ -87,7 +82,7 @@ NumberHandler.prototype.setSummedAndDivisors = function (){
         sumdiv = 0,
         countDivisors = 0,
         res = [];
-console.time('summing');
+
     for (let i = 1; i <= this.number; i++) {
         sum += i;
         fac = i * fac;
@@ -100,15 +95,13 @@ console.time('summing');
 
         if (i === this.number - 1 && fac !== 'Infinity') facM = fac;
     }
-    console.timeEnd('summing');
+
     this.numberProperties.divisors = res;
     this.numberProperties.sum_divisors_full = sumdiv;
     this.numberProperties.sum_divisors = sumdiv - this.number - 1;
     this.numberProperties.summed = sum;
     this.numberProperties.count_divisors = countDivisors;
     this.numberProperties.factorization_text = this.cleanString(this.factor(this.number));
-
-    //console.log(fac, facM, sumdiv, countDivisors, res);
 }
 
 NumberHandler.prototype.factor = function (n) {
@@ -167,6 +160,7 @@ NumberHandler.prototype.reduce = function (number) {
     }
 
 }
+
 NumberHandler.prototype.setTetrahedral = function () {
     if (true === this.checkTetrahedral()) {
         let tetrahedralManager = new TetrahedralManager();
