@@ -154,6 +154,7 @@ let FactorMatrix = function (number, depth, viewOnly) {
         this.depth = parseInt(depth);
         this.createFactorCollection();
     }
+
 }
 
 

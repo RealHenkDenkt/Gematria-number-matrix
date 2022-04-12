@@ -59,7 +59,7 @@ $(document).ready (function (){
         '#factorMatrixToggleLEMNI, ' +
         '#factorMatrixToggleZETA '
     ).on('click', function (){
-        showFactorSums = false === $(this)[0].checked;
+        showFactorSums = false === $('#factorMatrixShowSums')[0].checked;
         fillFactorMatrix(matrixFactor.val(), showFactorSums);
     });
 
@@ -171,10 +171,29 @@ $(document).ready (function (){
 
     factorMatrixTypeSelector.on('change', function () {
         let n = $(this).val();
-        $('#factorTypeCell').html(n);
+        let showFactorSums = false === $('#factorMatrixShowSums')[0].checked;
+        
+
         // Clear input to avoid weird behavior
         $('#matrixFactor').val('');
         fillFactorMatrix(n, showFactorSums);
+        let cellNames = {
+            'multiplication': 'Factor',
+            'composites': 'Composite',
+            'primes': 'Prime',
+            'pythagorean-primes': 'Pythagorean',
+            'semi-primes': 'Semi prime',
+            'triangulars': 'Triangular',
+            'hexagonals': 'Hexagonal',
+            'octagonals': 'Octagonal',
+            'tetrahedrals': 'Tetrahedral',
+            'stars': 'Star',
+            '19pirange': 'Sequence PI',
+            '19phirange': 'Sequence PHI',
+            '3pirange': 'Sequence PI',
+            '4phirange': 'Sequence PHI'
+        }
+        $('#factorTypeCell').html(cellNames[n]);
     });
 });
 
@@ -229,15 +248,15 @@ function fillFactorMatrix (number, showFactorSums) {
             tableRow +='<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SUM[0] + '">' + data.SUM[0] + '</span>';
             tableRow += '<span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SUM[1] + '">' + '(' + data.SUM[1] + ')</span></td>';
         } else {
-            if (true === irrationalHandler.irrationalToggles['PI']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.PI[0] + '">' + data.PI[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['PHI']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.PHI[0] + '">' + data.PHI[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['EULER']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.EULER[0] + '">' + data.EULER[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['SQRT2']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT2[0] + '">' + data.SQRT2[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['SQRT3']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT3[0] + '">' + data.SQRT3[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['SQRT5']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT5[0] + '">' + data.SQRT5[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['SQRT7']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT7[0] + '">' + data.SQRT7[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['LEMNI']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.LEMNI[0] + '">' + data.LEMNI[0] + '</td>';
-            if (true === irrationalHandler.irrationalToggles['ZETA']) tableRow += '<td class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.ZETA[0] + '">' + data.ZETA[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['PI']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.PI[0] + '">' + data.PI[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['PHI']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.PHI[0] + '">' + data.PHI[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['EULER']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.EULER[0] + '">' + data.EULER[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['SQRT2']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT2[0] + '">' + data.SQRT2[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['SQRT3']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT3[0] + '">' + data.SQRT3[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['SQRT5']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT5[0] + '">' + data.SQRT5[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['SQRT7']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SQRT7[0] + '">' + data.SQRT7[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['LEMNI']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.LEMNI[0] + '">' + data.LEMNI[0] + '</td>';
+            if (true === irrationalHandler.irrationalToggles['ZETA']) tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.ZETA[0] + '">' + data.ZETA[0] + '</td>';
             tableRow +='<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.SUM[0] + '">' + data.SUM[0] + '</span></td>';
         }
 
