@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/RealHenkDenkt/Gematria-number-matrix/blob/main/img/Gematria-number-matrix-release1.png?raw=true)
 
-##Inspiration
+## Inspiration
 
 This application is dedicated to the work of John Elias and many others. 
 
@@ -25,14 +25,14 @@ Please refer to the website http://37x73.com for a mind blowing trip through the
  
  
  
-##Usage:
+## Usage:
 
 Use the link below to see the code in action.
 
 https://htmlpreview.github.io/?https://github.com/RealHenkDenkt/Gematria-number-matrix/blob/main/index.html
 
 
-##Install:
+## Install:
 
 Clone the repository locally and open the index.html file with a browser.
 
@@ -45,9 +45,9 @@ one of length 4 starting at 1000, one of length 19 starting at 66.
 
 
 
-##Simple documentation
+## Simple documentation
 
-###Concepts
+### Concepts
 
 This is a tool to analyze/research numbers and their connections through different contexts. 
 
@@ -64,7 +64,7 @@ prime numbers will be shown.
 
 The two rows of switches at the top of the screen are for two purposes. 
 
-###Showing number types
+### Showing number types
 
 ![alt text](https://github.com/RealHenkDenkt/Gematria-number-matrix/blob/main/img/top-row-toggles-1.png?raw=true)
 
@@ -89,7 +89,7 @@ The last button (+++) is a special function which will be explained in the part 
 
 The image above shows the prime numbers highlighted in green.
 
-###Selecting irrational numbers
+### Selecting irrational numbers
 
 The second row of buttons is used to select irrational numbers to be added to the context. 
 
@@ -98,7 +98,7 @@ image that 2 is the first prime number and that this number is found at the 6th,
 of PI, PHI and Euler respectively. The last column shows the sum of these three positions 
 added together: 6 + 19 + 4 = 29.
 
-##Number analyzer
+## Number analyzer
 
 The application has a number analyzer implemented as a popup window which is shown below:
  
