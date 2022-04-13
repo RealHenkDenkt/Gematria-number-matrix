@@ -2,6 +2,19 @@ let FactorMatrixManager = function () {
 
 }
 
+FactorMatrixManager.prototype.checkHighlights = function () {
+    // Check all highlight toggles and apply accordingly
+    if (false === $('#factorMatrixTogglePrime')[0].checked) this.highlightPrimes();
+    if (false === $('#factorMatrixTogglePythagorean')[0].checked) this.highlightPythagoreanPrimes();
+    if (false === $('#factorMatrixToggleSemi')[0].checked) this.highlightSemiPrimes();
+    if (false === $('#factorMatrixToggleTriangular')[0].checked) this.highlightTriangulars();
+    if (false === $('#factorMatrixToggleTetrahedral')[0].checked) this.highlightTetrahedrals();
+    if (false === $('#factorMatrixToggleHexagonal')[0].checked) this.highlightHexagonals();
+    if (false === $('#factorMatrixToggleOctagonal')[0].checked) this.highlightOctagonals();
+    if (false === $('#factorMatrixToggleLucas')[0].checked) this.highlightLucas();
+    if (false === $('#factorMatrixToggleFibonacci')[0].checked) this.highlightFibonacci();
+}
+
 FactorMatrixManager.prototype.highlightPrimes = function () {
     // remove all prime highlights
     this.clearClass('bold-green');

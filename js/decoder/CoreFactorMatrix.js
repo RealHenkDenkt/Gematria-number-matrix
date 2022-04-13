@@ -271,4 +271,6 @@ function fillFactorMatrix (number, showFactorSums) {
     factorMatrix.setHighlights();
     factorMatrix.setModalClicks();
     setFactorMatrixCellName(factorMatrix);
+    let factorMatrixManager = new FactorMatrixManager();
+    factorMatrixManager.checkHighlights();
 }
