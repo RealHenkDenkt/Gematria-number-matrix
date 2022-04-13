@@ -24,6 +24,10 @@ sup {
     font-weight: bolder;
 }
 
+.fixed-bold {
+    color: #faf0b4;/*#4ea121;*/
+    font-weight: bold;
+}
 .bold-purple {
     color: #ad7ee2;/*#4ea121;*/
     font-weight: bolder;
@@ -557,4 +561,7 @@ em.irrationalEnd {
 }
 .cellRight {
     text-align: right;
+}
+#matrixFactor, #matrixFactorRows {
+    width: 4.5em;
 }

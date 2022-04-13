@@ -177,25 +177,29 @@ $(document).ready (function (){
         // Clear input to avoid weird behavior
         $('#matrixFactor').val('');
         fillFactorMatrix(n, showFactorSums);
-        let cellNames = {
-            'multiplication': 'Factor',
-            'composites': 'Composite',
-            'primes': 'Prime',
-            'pythagorean-primes': 'Pythagorean',
-            'semi-primes': 'Semi prime',
-            'triangulars': 'Triangular',
-            'hexagonals': 'Hexagonal',
-            'octagonals': 'Octagonal',
-            'tetrahedrals': 'Tetrahedral',
-            'stars': 'Star',
-            '19pirange': 'Sequence PI',
-            '19phirange': 'Sequence PHI',
-            '3pirange': 'Sequence PI',
-            '4phirange': 'Sequence PHI'
-        }
-        $('#factorTypeCell').html(cellNames[n]);
     });
 });
+
+function setFactorMatrixCellName (factorMatrix) {
+    let cellNames = {
+        'multiplication': 'Factor',
+        'composites': 'Composite',
+        'primes': 'Prime',
+        'pythagorean-primes': 'Pythagorean',
+        'semi-primes': 'Semi prime',
+        'triangulars': 'Triangular',
+        'hexagonals': 'Hexagonal',
+        'octagonals': 'Octagonal',
+        'tetrahedrals': 'Tetrahedral',
+        'stars': 'Star',
+        '19pirange': 'Sequence PI',
+        '19phirange': 'Sequence PHI',
+        '3pirange': 'Sequence PI',
+        '4phirange': 'Sequence PHI'
+    }
+    $('#factorTypeCell').html(cellNames[$('#factorMatrixTypeSelector').val()]);
+
+}
 
 function setFactorMatrixHighlights() {
     let factorMatrix = new FactorMatrix();
@@ -205,7 +209,7 @@ function setFactorMatrixHighlights() {
 function fillFactorMatrix (number, showFactorSums) {
         if ($('#matrixFactor').val() === '') return;
 
-        let factorMatrix = new FactorMatrix(number, 40),
+        let factorMatrix = new FactorMatrix(number, parseInt($('#matrixFactorRows').val())),
         tableBody = '',
         factorMatrixTableBody = $('#factorMatrixTable tbody'),
         factorMatrixTableDynamicRow = $('#factorMatrixTableDynamicRow');
@@ -220,7 +224,7 @@ function fillFactorMatrix (number, showFactorSums) {
         let data = factorMatrix.collection[i][0];
         tableRow += '<td class="factor-matrix-cell">' + (i+1)  + '</td>';
         tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.index + '">' + data.index + '</span></td>';
-        tableRow += '<td><span class="factor-matrix-cell" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.number + '">' + data.number + '</span></td>';
+        tableRow += '<td><span class="factor-matrix-cell fixed-bold" data-toggle="modal" data-target="#factorMatrixModal" data-totals="' + data.number + '">' + data.number + '</span></td>';
 
         let irrationalHandler = new IrrationalHandler();
         irrationalHandler.checkToggled();
@@ -266,4 +270,5 @@ function fillFactorMatrix (number, showFactorSums) {
     factorMatrixTableBody.html(tableBody);
     factorMatrix.setHighlights();
     factorMatrix.setModalClicks();
+    setFactorMatrixCellName(factorMatrix);
 }
