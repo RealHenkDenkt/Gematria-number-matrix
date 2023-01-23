@@ -1,5 +1,6 @@
-let NumberHandler = function () {
+let NumberHandler = function (only_composite = false) {
     this.number = -1;
+    this.only_composite = only_composite; 
 
 }
 
@@ -37,22 +38,24 @@ NumberHandler.prototype.setNumber = function (number) {
 NumberHandler.prototype.setProperties = function () {
     if (this.number === 1) return;
 
-    this.setPrimeExperimental();
-    this.setFibonacci();
-    this.setTriangular();
-    this.setTetrahedral();
-    this.setHexagonal();
-    this.setStar();
-    this.setOctagonal();
-    this.setLucas();
-    this.setReduced();
-    this.setTimesSelf();
-    this.setPlusMirror();
-    this.setTimesMirror();
-    this.setComposite();
-    if (this.numberProperties.composite === -1) {
+	if (this.only_composite === false) {
+	    this.setPrimeExperimental();
+	    this.setFibonacci();
+	    this.setTriangular();
+	    this.setTetrahedral();
+	    this.setHexagonal();
+	    this.setStar();
+	    this.setOctagonal();
+	    this.setLucas();
+	    this.setReduced();
+	    this.setTimesSelf();
+	    this.setPlusMirror();
+	    this.setTimesMirror();
+	}
+   this.setComposite();
+   // if (this.numberProperties.composite === -1) {
         this.setSummedAndDivisors();
-    }
+    //}
 }
 
 NumberHandler.prototype.setReduced = function (){
@@ -271,8 +274,9 @@ NumberHandler.prototype.mirrorNumber = function (number) {
 
 }
 NumberHandler.prototype.setComposite = function () {
-    if (true === this.checkComposite() && this.number <= 110488) {
-        let index = Composites.indexOf(this.number);
+   this.numberProperties.composite = CompositeNumbers.indexOf(this.number) + 1;
+   /* if (true === this.checkComposite() && this.number <= 110488) {
+        let index = Composite.indexOf(this.number);
         let compositeProperties = CompositeProperties[index];
         this.numberProperties.composite = index + 1;
         this.numberProperties.count_divisors = compositeProperties.count_divisors;
@@ -281,7 +285,7 @@ NumberHandler.prototype.setComposite = function () {
         this.numberProperties.sum_divisors_full = compositeProperties.sum_divisors_full;
         this.numberProperties.summed = compositeProperties.summed;
         this.numberProperties.factorization_text = compositeProperties.factorization_text;
-    }
+    }*/
 }
 
 NumberHandler.prototype.checkComposite = function () {
