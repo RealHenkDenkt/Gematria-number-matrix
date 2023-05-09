@@ -1,3 +1,31 @@
+# NOTICE
+
+I am in the process of rewriting this tool to make it more useful in investigating numbers.
+
+The drop down list will change into the type of number that is investigated:
+
+- Multiplication table
+- Primes
+- Composites
+- Semi primes
+- Octagonals
+- Etc...
+
+One field will serve as the 'start index', a second field will serve as 'number of rows'. 
+
+Example:
+
+If 'primes' is selected as number type, the index is 1 and the number of rows is 37, the first 37 prime numbers will be shown. 
+The 'irrational number' display will remain more or less the same (although I am looking in solving some bugs that prevent some 
+higher numbers to be correctly displayed). 
+
+On the bottom of the list, there will be a sum displayed of the listed numbers on the screen. 
+
+With the previous example of the first 37 primes, this would show these primes and at the bottom, a sum of the first 37 primes will be shown.
+
+Expected release of these changes is before the end of May 2023.
+
+
 # Gematria-number-matrix
 
 ![alt text](https://github.com/RealHenkDenkt/Gematria-number-matrix/blob/main/img/Gematria-number-matrix-release1.png?raw=true)
